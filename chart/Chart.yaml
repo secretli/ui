@@ -1,0 +1,8 @@
+apiVersion: v2
+type: application
+
+name: secretli-ui
+description: Frontend for a zero-trust secret sharing service
+
+version: 0.1.0
+appVersion: "prototype"

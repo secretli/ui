@@ -27,23 +27,23 @@ jobs:
           push: true
           tags: ghcr.io/${{github.repository }}:${{ github.sha }}
 
-#  deploy:
-#    name: Deploy to kubernetes cluster
-#    runs-on: ubuntu-latest
-#    needs: build
-#    steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v2
-#
-#      - name: Deploy with helm
-#        uses: WyriHaximus/github-action-helm3@v2
-#        with:
-#          kubeconfig: '${{ secrets.KUBECONFIG }}'
-#          exec: >-
-#            helm upgrade
-#            --install
-#            --namespace secretli
-#            --set imageVersion=${{ github.sha }}
-#            --values ./chart/production.yaml
-#            secretli
-#            ./chart
+  deploy:
+    name: Deploy to kubernetes cluster
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy with helm
+        uses: WyriHaximus/github-action-helm3@v2
+        with:
+          kubeconfig: '${{ secrets.KUBECONFIG }}'
+          exec: >-
+            helm upgrade
+            --install
+            --namespace secretli
+            --set imageVersion=${{ github.sha }}
+            --values ./chart/production.yaml
+            secretli-ui
+            ./chart
