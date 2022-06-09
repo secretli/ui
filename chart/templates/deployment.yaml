@@ -29,11 +29,3 @@ spec:
               port: 80
             initialDelaySeconds: 10
             periodSeconds: 5
-          securityContext:
-            runAsUser: 10001
-            runAsGroup: 10001
-            runAsNonRoot: true
-            allowPrivilegeEscalation: false
-            capabilities:
-              drop:
-                - ALL

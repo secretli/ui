@@ -8,11 +8,10 @@ import { ShareRoute, RetrieveRoute } from "./routes/routes";
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
 root.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/s">
       <Routes>
-          <Route path="/s/share" element={<ShareRoute />} />
-          <Route path="/s" element={<RetrieveRoute />} />
-          <Route path="*" element={<Navigate to="/s/share" replace />} />
+          <Route path="/share" element={<ShareRoute />} />
+          <Route path="/" element={<RetrieveRoute />} />
       </Routes>
   </BrowserRouter>
 )
