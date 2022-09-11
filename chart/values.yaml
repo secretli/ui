@@ -1,0 +1,6 @@
+imageVersion: latest
+replicas: 1
+
+forwardedPrefix: "/"
+
+resources: {}

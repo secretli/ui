@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: secretli-ui
+  labels:
+    app: secretli-ui
+spec:
+  selector:
+    matchLabels:
+      app: secretli-ui
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      name: secretli-ui
+      labels:
+        app: secretli-ui
+    spec:
+      imagePullSecrets:
+        - name: dockerconfigjson-github-com
+      containers:
+        - name: secretli-ui
+          image: "ghcr.io/secretli/ui:{{ required "Set valid .Values.imageVersion entry!" .Values.imageVersion }}"
+          imagePullPolicy: Always
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              path: {{ .Values.forwardedPrefix }}
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 5

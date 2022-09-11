@@ -1,0 +1,15 @@
+# Already present in namespace!!
+# Uncomment me if needed
+#
+# apiVersion: cert-manager.io/v1
+# kind: Certificate
+# metadata:
+#   name: gphrase.de-cert
+#   namespace: secretli
+# spec:
+#   secretName: gphrase.de-cert-secret
+#   dnsNames:
+#     - gphrase.de
+#   issuerRef:
+#    name: letsencrypt
+#    kind: ClusterIssuer
