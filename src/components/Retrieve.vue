@@ -25,7 +25,7 @@ export default defineComponent({
             let keySet = await KeySet.KeySetFromString(shareSecret.toString())
             let encodedKeySet = keySet.getEncodedKeySet()
 
-            let response = await fetch(`https://gphrase.de/s/api/secret/${encodedKeySet.publicID}`, {
+            let response = await fetch(`https://patrickscheid.de/s/api/secret/${encodedKeySet.publicID}`, {
                 method: 'POST',
                 headers: {
                     'X-Retrieval-Token': encodedKeySet.retrievalToken,

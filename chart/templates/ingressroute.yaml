@@ -7,10 +7,10 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`gphrase.de`) && PathPrefix(`{{ trimSuffix "/" .Values.forwardedPrefix }}`)
+    - match: Host(`patrickscheid.de`) && PathPrefix(`{{ trimSuffix "/" .Values.forwardedPrefix }}`)
       kind: Rule
       services:
         - name: secretli-ui
           port: 80
   tls:
-    secretName: gphrase.de-cert-secret
+    secretName: patrickscheid.de-cert-secret

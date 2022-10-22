@@ -4,12 +4,12 @@
 # apiVersion: cert-manager.io/v1
 # kind: Certificate
 # metadata:
-#   name: gphrase.de-cert
+#   name: patrickscheid.de-cert
 #   namespace: secretli
 # spec:
-#   secretName: gphrase.de-cert-secret
+#   secretName: patrickscheid.de-cert-secret
 #   dnsNames:
-#     - gphrase.de
+#     - patrickscheid.de
 #   issuerRef:
 #    name: letsencrypt
 #    kind: ClusterIssuer
