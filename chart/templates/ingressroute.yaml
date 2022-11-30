@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - websecure
   routes:
-    - match: Host(`patrickscheid.de`) && PathPrefix(`{{ trimSuffix "/" .Values.forwardedPrefix }}`)
+    - match: Host(`patrickscheid.de`) && (Path(`{{ trimSuffix "/" .Values.forwardedPrefix }}`) || PathPrefix(`{{ trimSuffix "/" .Values.forwardedPrefix }}/`))
       kind: Rule
       services:
         - name: secretli-ui
